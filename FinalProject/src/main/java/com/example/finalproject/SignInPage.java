@@ -1,46 +1,43 @@
 package com.example.finalproject;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+public class SignInPage{
+    private Stage primaryStage;
 
-public class SignInPage extends Application {
-    public SignInPage(TestPage testPage) {
+    public SignInPage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
-    @Override
-    public void start(Stage stage) throws IOException {
+
+    public void show(){
         Group group = new Group();
+        Scene scene = new Scene(group, 1150, 647,Color.web("0096C7"));
 
 
         VBox vBox = new VBox();
         vBox.getChildren().add(addVBox());
         //vBox.setAlignment(Pos.CENTER);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Sign in");
 
-
-        stage.setTitle("NAME TO BE MADE");
-        Scene scene = new Scene(group, 1150, 647,Color.web("0096C7"));
         group.getChildren().addAll(vBox);
         double x = (scene.getWidth() - vBox.prefWidth(-1))/2;
 
         vBox.setLayoutX(x);
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.show();
     }
 
     public VBox addVBox() {
@@ -66,22 +63,24 @@ public class SignInPage extends Application {
         signInButton.setMinHeight(35);
         signInButton.setFont(Font.font(16));
 
+        EventHandler<ActionEvent> goHome = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                primaryStage.goToHomePage();
+            }
+        };
+
+        signInButton.setOnAction(goHome);
+
         Button createAccountButton = new Button("Create an account");
         createAccountButton.setMinHeight(35);
         createAccountButton.setFont(Font.font(16));
 
         vBox.getChildren().addAll(userNameText,userNameInput,passWordText,passWordInput,signInButton,createAccountButton);
 
-
-
-
         return vBox;
     }
 
-
-    public static void main(String[] args) {
-        launch();
-    }
 
 
 }

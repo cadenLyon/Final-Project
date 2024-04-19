@@ -3,10 +3,11 @@ package com.example.finalproject;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class TestPage extends Application {
+public class Main extends Application {
 
-    private TestPage2 testPage2;
+    private SignInPage signInPage;
     private Stage stage;
+    private HomePage homePage;
 
     public static void main(String[] args) {
         launch(args);
@@ -16,9 +17,16 @@ public class TestPage extends Application {
     public void start(Stage stage) {
         this.stage = stage;
 
-        testPage2 = new TestPage2(stage);
+        signInPage = new SignInPage(stage;
 
         // Show the initial page
-        testPage2.show();
+        signInPage.show();
     }
+
+    public void goToHomePage(){
+        homePage = new HomePage(stage);
+        homePage.show();
+    }
+
+
 }
