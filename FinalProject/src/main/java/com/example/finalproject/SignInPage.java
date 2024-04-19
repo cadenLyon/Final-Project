@@ -19,7 +19,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class SignInPage extends Application {
+    public SignInPage(TestPage testPage) {
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         Group group = new Group();
@@ -31,7 +34,7 @@ public class HelloApplication extends Application {
 
 
         stage.setTitle("NAME TO BE MADE");
-        Scene scene = new Scene(group, 1150, 647,Color.web("0077B6"));
+        Scene scene = new Scene(group, 1150, 647,Color.web("0096C7"));
         group.getChildren().addAll(vBox);
         double x = (scene.getWidth() - vBox.prefWidth(-1))/2;
 
@@ -49,6 +52,7 @@ public class HelloApplication extends Application {
 
         Text userNameText = new Text("Enter Username");
         userNameText.setFont(Font.font("Verdana", 20));
+        userNameText.setFill(Color.web("000000"));
 
         TextField userNameInput = new TextField();
 
@@ -59,7 +63,12 @@ public class HelloApplication extends Application {
         TextField passWordInput = new TextField();
 
         Button signInButton = new Button("Sign in");
+        signInButton.setMinHeight(35);
+        signInButton.setFont(Font.font(16));
+
         Button createAccountButton = new Button("Create an account");
+        createAccountButton.setMinHeight(35);
+        createAccountButton.setFont(Font.font(16));
 
         vBox.getChildren().addAll(userNameText,userNameInput,passWordText,passWordInput,signInButton,createAccountButton);
 
@@ -69,7 +78,10 @@ public class HelloApplication extends Application {
         return vBox;
     }
 
+
     public static void main(String[] args) {
         launch();
     }
+
+
 }
