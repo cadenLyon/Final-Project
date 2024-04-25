@@ -66,7 +66,7 @@ public class SignInPage{
         EventHandler<ActionEvent> goHome = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                primaryStage.goToHomePage();
+                //primaryStage.goToHomePage();
             }
         };
 

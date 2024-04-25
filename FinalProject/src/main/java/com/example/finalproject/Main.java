@@ -1,13 +1,14 @@
 package com.example.finalproject;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private SignInPage signInPage;
-    private Stage stage;
-    private HomePage homePage;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -15,18 +16,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        this.stage = stage;
-
-        signInPage = new SignInPage(stage;
-
-        // Show the initial page
-        signInPage.show();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public void goToHomePage(){
-        homePage = new HomePage(stage);
-        homePage.show();
-    }
+
 
 
 }
