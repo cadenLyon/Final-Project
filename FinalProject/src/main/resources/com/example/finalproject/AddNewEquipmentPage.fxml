@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2C7DA0;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.SceneController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2C7DA0;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.AddEquipmentController">
    <children>
       <Button layoutX="607.0" layoutY="40.0" mnemonicParsing="false" onAction="#switchToHomePage" text="Back to Home Page" />
       <TextField fx:id="makeTextField" layoutX="307.0" layoutY="135.0" />
@@ -33,7 +33,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="363.0" layoutY="457.0" mnemonicParsing="false" text="Enter">
+      <Button layoutX="363.0" layoutY="457.0" mnemonicParsing="false" onAction="#addEquipment" text="Enter">
          <font>
             <Font size="20.0" />
          </font>

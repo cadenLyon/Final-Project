@@ -15,44 +15,39 @@ import java.io.IOException;
 
 public class AddEquipmentController {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
     @FXML
     private TextField makeTextField;
     @FXML
-    private TextField modelInputText;
+    private TextField modelTextField;
     @FXML
-    private TextField serialInputText;
+    private TextField serialTextField;
     @FXML
-    private TextField assetInputText;
+    private TextField assetTextField;
+
     @FXML
-    private String userName;
-    private String date;
-    private String time;
+    private void switchToHomePage(ActionEvent event) throws IOException {
+        Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Scene homeScene = new Scene(homeParent);
 
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(homeScene);
+        window.show();
+    }
 
-
-
-/*
-    public void addEquipment(ActionEvent event){
-
+    @FXML
+    private void addEquipment(ActionEvent event) {
         String make = makeTextField.getText();
-        String model = modelInputText.getText();
-        String serial = serialInputText.getText();
+        String model = modelTextField.getText();
+        String serial = serialTextField.getText();
+        String asset = assetTextField.getText();
 
+        // Perform necessary actions to add equipment, e.g., write to a file or save to a database
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("equipment.txt", true))) {
-            writer.write(make + "," + model + "," + serial);
+            writer.write(make + "," + model + "," + serial + "," + asset);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
             // Handle file writing error
         }
     }
-
- */
-
-
-
 }
