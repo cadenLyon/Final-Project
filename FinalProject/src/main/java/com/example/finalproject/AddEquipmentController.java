@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -23,6 +24,9 @@ public class AddEquipmentController {
     private TextField serialTextField;
     @FXML
     private TextField assetTextField;
+    @FXML
+    private Label warningLabel;
+
 
     @FXML
     private void switchToHomePage(ActionEvent event) throws IOException {
@@ -36,18 +40,23 @@ public class AddEquipmentController {
 
     @FXML
     private void addEquipment(ActionEvent event) {
-        String make = makeTextField.getText();
-        String model = modelTextField.getText();
-        String serial = serialTextField.getText();
-        String asset = assetTextField.getText();
+        if (makeTextField.getText().isEmpty() || modelTextField.getText().isEmpty() || serialTextField.getText().isEmpty() ||assetTextField.getText().isEmpty()){
+            warningLabel.setText("Please fill in all fields");
+        }else{
+            String make = makeTextField.getText().toUpperCase();
+            String model = modelTextField.getText().toUpperCase();
+            String serial = serialTextField.getText().toUpperCase();
+            String asset = assetTextField.getText().toUpperCase();
 
-        // Perform necessary actions to add equipment, e.g., write to a file or save to a database
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("equipment.txt", true))) {
-            writer.write(make + "," + model + "," + serial + "," + asset);
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle file writing error
+            // Perform necessary actions to add equipment, e.g., write to a file or save to a database
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("equipment.txt", true))) {
+                writer.write(make + ", " + model + ", " + serial + ", " + asset);
+                writer.newLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Handle file writing error
+            }
         }
+
     }
 }
