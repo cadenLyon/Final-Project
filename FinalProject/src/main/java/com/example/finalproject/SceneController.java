@@ -17,8 +17,7 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    @FXML
-    private AnchorPane signInPagePane;
+
 
     public void switchToSignInPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
@@ -28,10 +27,7 @@ public class SceneController {
         stage.show();
     }
 
-    public void setSignInPagePaneColor(){
-        //signInPagePane.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
-        signInPagePane.setStyle("-fx-background-color: #000000");
-    }
+
     public void switchToHomePage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

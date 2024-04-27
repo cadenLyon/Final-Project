@@ -4,25 +4,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.SceneController">
+<AnchorPane fx:id="homePagePane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2C7DA0;" styleClass="homePagePane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.SceneController">
    <children>
-      <Button layoutX="81.0" layoutY="323.0" mnemonicParsing="false" prefHeight="197.0" prefWidth="289.0" text="Add equipment">
+      <Button layoutX="81.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToAddNewEquipmentPage" prefHeight="197.0" prefWidth="289.0" text="Add equipment">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="81.0" layoutY="59.0" mnemonicParsing="false" prefHeight="197.0" prefWidth="289.0" text="View all equipment">
+      <Button fx:id="viewEquipmentButton" layoutX="81.0" layoutY="87.0" mnemonicParsing="false" onAction="#switchToViewEquipmentPage" prefHeight="197.0" prefWidth="289.0" text="View all equipment">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="436.0" layoutY="59.0" mnemonicParsing="false" prefHeight="197.0" prefWidth="289.0" text="Remove equipment">
+      <Button layoutX="437.0" layoutY="87.0" mnemonicParsing="false" onAction="#switchToRemoveEquipmentPage" prefHeight="197.0" prefWidth="289.0" text="Remove equipment">
          <font>
             <Font size="25.0" />
          </font></Button>
-      <Button layoutX="436.0" layoutY="323.0" mnemonicParsing="false" prefHeight="197.0" prefWidth="289.0" text="Check out equipment">
+      <Button layoutX="436.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToCheckOutPage" prefHeight="197.0" prefWidth="289.0" text="Check out equipment">
          <font>
             <Font size="25.0" />
          </font></Button>
+      <Button layoutX="574.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToSignInPage" prefHeight="31.0" prefWidth="151.0" text="Log Out" />
    </children>
 </AnchorPane>
