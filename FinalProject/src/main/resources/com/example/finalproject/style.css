@@ -1,0 +1,7 @@
+.signInPagePane{
+    -fx-background-color: #000000
+}
+
+.logInButton{
+    -fx-border-radius: 25px;
+}
