@@ -50,7 +50,7 @@ public class AddEquipmentController {
 
             // Perform necessary actions to add equipment, e.g., write to a file or save to a database
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("equipment.txt", true))) {
-                writer.write(make + ", " + model + ", " + serial + ", " + asset);
+                writer.write(make + " " + model + " " + serial + " " + asset);
                 writer.newLine();
             } catch (IOException e) {
                 e.printStackTrace();

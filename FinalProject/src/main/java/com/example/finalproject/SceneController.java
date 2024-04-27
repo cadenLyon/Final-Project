@@ -22,6 +22,11 @@ public class SceneController {
         loadFXML("AddNewEquipmentPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
     }
 
+    @FXML
+    public void switchToViewEquipmentPage(ActionEvent event) throws IOException {
+        loadFXML("ViewEquipmentPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
+    }
+
     private void loadFXML(String fxmlFileName, Stage window) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
         Parent root = fxmlLoader.load();
@@ -84,6 +89,7 @@ public class SceneController {
         stage.show();
     }
 
+    /*
     public void switchToViewEquipmentPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("ViewEquipmentPage.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -91,4 +97,6 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+     */
 }

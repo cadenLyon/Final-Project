@@ -1,9 +1,1 @@
-1,1,1,1
-1,1,1,1
-1,1,1,1
-HP,123,ABC303,303720
-hp,laptop1,abc303,720808
-hp,laptop1,abc303,720808
-hp,laptop1,abc303,720808
-1,2,3,4
-ABC, ABCV, ABC, ABC
+hp laptop1 abc303 123567 caden 3/13/67 1201 no
