@@ -10,18 +10,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    @FXML
-    private AnchorPane signInPagePane;
-
-
 
     public static void main(String[] args) {
 
         IDandPasswords iDandPasswords = new IDandPasswords();
         LogInPage logInPage = new LogInPage(iDandPasswords.getLoginInfo());
-
-
-
 
         launch(args);
     }
@@ -30,7 +23,6 @@ public class Main extends Application {
     public void start(Stage stage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
-            //signInPagePane.setStyle("-fx-background-color: lightblue;");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

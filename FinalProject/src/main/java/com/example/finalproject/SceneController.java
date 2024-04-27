@@ -37,6 +37,7 @@ public class SceneController {
     }
 
     public void switchToAddNewEquipmentPage(ActionEvent event) throws IOException {
+
         root = FXMLLoader.load(getClass().getResource("AddNewEquipmentPage.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
