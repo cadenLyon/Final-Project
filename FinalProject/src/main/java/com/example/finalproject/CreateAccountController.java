@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 public class CreateAccountController {
     @FXML
@@ -32,17 +33,47 @@ public class CreateAccountController {
         window.show();
     }
 
+    private int getKey(){
+        Random random = new Random();
+        int key = random.nextInt(20,100);
+        return key;
+    }
+
+    private String encryptPassword(int key){
+        StringBuilder stringBuilderPassword = new StringBuilder();
+        char[] passwordChars = passwordTextField.getText().toCharArray();
+        for (char p : passwordChars){
+            p += key;
+            stringBuilderPassword.append(p);
+        }
+        String encryptedPassword = stringBuilderPassword.toString();
+        return encryptedPassword;
+    }
+
+    private String encryptUsername(int key){
+        StringBuilder stringBuilderUsername = new StringBuilder();
+        char[] usernameChars = usernameTextField.getText().toCharArray();
+        for (char u : usernameChars){
+            u += key;
+            stringBuilderUsername.append(u);
+        }
+        String encryptedUsername = stringBuilderUsername.toString();
+        return encryptedUsername;
+    }
+
     @FXML
     private void writeToCredFiles(ActionEvent event) throws IOException {
+        String username = encryptUsername(getKey());
+        String password = encryptPassword(getKey());
         BufferedWriter usernameWriter = new BufferedWriter(new FileWriter("usernames.txt", true));
-        usernameWriter.write(usernameTextField.getText());
+        usernameWriter.write(username);
         usernameWriter.newLine();
         BufferedWriter passwordWriter = new BufferedWriter(new FileWriter("passwords.txt", true));
-        passwordWriter.write(passwordTextField.getText());
+        passwordWriter.write(password);
         passwordWriter.newLine();
 
-        //usernameWriter.flush();
-        //passwordWriter.flush();
+        usernameWriter.flush();
+        passwordWriter.flush();
         usernameWriter.close();
         passwordWriter.close();
 

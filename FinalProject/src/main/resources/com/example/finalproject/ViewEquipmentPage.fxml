@@ -10,8 +10,8 @@
       <Button layoutX="634.0" layoutY="36.0" mnemonicParsing="false" onAction="#switchToHomePage" text="Back To Home" />
       <TableView fx:id="equipmentTable" editable="true" fixedCellSize="0.0" layoutX="50.0" layoutY="87.0" prefHeight="458.0" prefWidth="700.0">
         <columns>
-          <TableColumn fx:id="modelColumn" prefWidth="84.0" text="Model" />
-          <TableColumn fx:id="makeColumn" prefWidth="66.0" text="Make" />
+          <TableColumn fx:id="makeColumn" prefWidth="84.0" text="Make" />
+          <TableColumn fx:id="modelColumn" prefWidth="66.0" text="Model" />
             <TableColumn fx:id="serialColumn" prefWidth="75.0" text="Serial #" />
             <TableColumn fx:id="assetColumn" prefWidth="75.0" text="Asset Tag" />
             <TableColumn fx:id="userColumn" prefWidth="75.0" text="User" />
