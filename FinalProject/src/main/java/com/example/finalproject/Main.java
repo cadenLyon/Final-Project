@@ -21,6 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
             Scene scene = new Scene(root);
@@ -29,6 +30,8 @@ public class Main extends Application {
         } catch (Exception e){
             e.printStackTrace();
         }
+
+
     }
 
 

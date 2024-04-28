@@ -40,6 +40,7 @@ public class AddEquipmentController {
 
     @FXML
     private void addEquipment(ActionEvent event) {
+        IDandPasswords iDandPasswords = new IDandPasswords();
         if (makeTextField.getText().isEmpty() || modelTextField.getText().isEmpty() || serialTextField.getText().isEmpty() ||assetTextField.getText().isEmpty()){
             warningLabel.setText("Please fill in all fields");
         }else{
@@ -47,9 +48,13 @@ public class AddEquipmentController {
             String model = modelTextField.getText().toUpperCase();
             String serial = serialTextField.getText().toUpperCase();
             String asset = assetTextField.getText().toUpperCase();
+            String user = iDandPasswords.getUsername();
+            String date = String.valueOf(java.time.LocalDate.now());
+            String time = String.valueOf(java.time.LocalTime.now());
+            String inUse = "no";
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("equipment.txt", true))) {
-                writer.write(make + " " + model + " " + serial + " " + asset);
+                writer.write(make + " " + model + " " + serial + " " + asset+" "+user+" "+date+" "+time+" "+inUse);
                 writer.newLine();
             } catch (IOException e) {
                 e.printStackTrace();

@@ -31,6 +31,13 @@ public class SceneController {
         loadFXML("CreateAccountPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
     }
 
+    @FXML
+    public void switchToSignInPage(ActionEvent event) throws IOException {
+        loadFXML("SignInPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
+    }
+
+
+
     private void loadFXML(String fxmlFileName, Stage window) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
         Parent root = fxmlLoader.load();
@@ -39,6 +46,7 @@ public class SceneController {
         window.show();
     }
 
+    /*
     public void switchToSignInPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -46,6 +54,8 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+     */
 
     /*
     public void setAddEquipmentController(AddEquipmentController addEquipmentController) {

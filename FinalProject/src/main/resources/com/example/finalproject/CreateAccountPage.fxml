@@ -29,5 +29,15 @@
             <Font size="20.0" />
          </font></Button>
       <Button layoutX="684.0" layoutY="34.0" mnemonicParsing="false" onAction="#switchToSignInPage" text="Cancel" />
+      <Label fx:id="passwordError" layoutX="293.0" layoutY="491.0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameError" layoutX="292.0" layoutY="453.0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

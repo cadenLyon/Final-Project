@@ -6,31 +6,36 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CreateAccountController {
     @FXML
     private TextField usernameTextField;
     @FXML
     private TextField passwordTextField;
+    @FXML
+    private Label usernameError;
+    @FXML
+    private Label passwordError;
 
     @FXML
     private void switchToSignInPage(ActionEvent event) throws IOException {
-        Parent homeParent = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
-        Scene homeScene = new Scene(homeParent);
 
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(homeScene);
-        window.show();
+            Parent homeParent = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
+            Scene homeScene = new Scene(homeParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(homeScene);
+            window.show();
+
+
     }
 
     private int getKey(){
@@ -62,27 +67,29 @@ public class CreateAccountController {
     }
 
     @FXML
-    private void writeToCredFiles(ActionEvent event) throws IOException {
-        String username = encryptUsername(getKey());
-        String password = encryptPassword(getKey());
-        BufferedWriter usernameWriter = new BufferedWriter(new FileWriter("usernames.txt", true));
-        usernameWriter.write(username);
-        usernameWriter.newLine();
-        BufferedWriter passwordWriter = new BufferedWriter(new FileWriter("passwords.txt", true));
-        passwordWriter.write(password);
-        passwordWriter.newLine();
+    private HashMap<String, String> writeToCredFiles(ActionEvent event) throws IOException {
+        IDandPasswords iDandPasswords = new IDandPasswords();
 
-        usernameWriter.flush();
-        passwordWriter.flush();
-        usernameWriter.close();
-        passwordWriter.close();
+        if (usernameTextField.getText().isEmpty() || passwordTextField.getText().isEmpty()) {
+            passwordError.setText("Please fill in the password field");
+            usernameError.setText("Please fill in the username field");
 
-        Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        Scene homeScene = new Scene(homeParent);
+        } else {
 
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(homeScene);
-        window.show();
+            iDandPasswords.addUsernameAndPassword(usernameTextField.getText(), passwordTextField.getText());
+            System.out.println(iDandPasswords.getLoginInfo());
+
+
+            Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            Scene homeScene = new Scene(homeParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(homeScene);
+            window.show();
+
+        }
+
+        return iDandPasswords.getLoginInfo();
     }
 
 }
