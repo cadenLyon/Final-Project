@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalTime;
 
 public class AddEquipmentController {
 
@@ -40,15 +41,17 @@ public class AddEquipmentController {
 
     @FXML
     private void addEquipment(ActionEvent event) {
-        IDandPasswords iDandPasswords = new IDandPasswords();
+        IDandPasswords iDandPasswords = IDandPasswords.refresh();
         if (makeTextField.getText().isEmpty() || modelTextField.getText().isEmpty() || serialTextField.getText().isEmpty() ||assetTextField.getText().isEmpty()){
             warningLabel.setText("Please fill in all fields");
         }else{
+
             String make = makeTextField.getText().toUpperCase();
             String model = modelTextField.getText().toUpperCase();
             String serial = serialTextField.getText().toUpperCase();
             String asset = assetTextField.getText().toUpperCase();
-            String user = iDandPasswords.getUsername();
+            String user = IDandPasswords.refresh().getUsername();
+            System.out.println(iDandPasswords.getUsername());
             String date = String.valueOf(java.time.LocalDate.now());
             String time = String.valueOf(java.time.LocalTime.now());
             String inUse = "no";

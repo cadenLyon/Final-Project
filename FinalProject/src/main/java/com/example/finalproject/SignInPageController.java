@@ -71,7 +71,9 @@ public class SignInPageController {
 
          */
         if(checker){
-            iDandPasswords.setUsername(userTextField.getText());
+            String username = userTextField.getText();
+            IDandPasswords.refresh().setUsername(username);
+            //iDandPasswords.setUsername(userTextField.getText());
             Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             Scene homeScene = new Scene(homeParent);
 

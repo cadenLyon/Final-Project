@@ -14,7 +14,7 @@ public class IDandPasswords {
 
     HashMap<String,String> loginInfo = new HashMap<>();
     private static IDandPasswords instance = null;
-    public String loggedInUsername;
+    private String loggedInUsername;
 
     IDandPasswords(){
         loginInfo.put("1234","1234");
