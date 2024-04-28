@@ -26,6 +26,10 @@ public class SceneController {
     public void switchToViewEquipmentPage(ActionEvent event) throws IOException {
         loadFXML("ViewEquipmentPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
     }
+    @FXML
+    public void switchToCreateAccountPage(ActionEvent event) throws IOException {
+        loadFXML("CreateAccountPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
+    }
 
     private void loadFXML(String fxmlFileName, Stage window) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
@@ -73,6 +77,7 @@ public class SceneController {
         stage.show();
     }
 
+    /*
     public void switchToCreateAccountPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("CreateAccountPage.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -80,6 +85,8 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+     */
 
     public void switchToRemoveEquipmentPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("RemoveEquipmentPage.fxml"));

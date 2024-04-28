@@ -72,17 +72,6 @@ public class ViewEquipmentController {
         FileReader fileReader = new FileReader("equipment.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        /*
-        ArrayList<String> modelStrings = new ArrayList<>();
-        ArrayList<String> makeStrings = new ArrayList<>();
-        ArrayList<String> serialStrings = new ArrayList<>();
-        ArrayList<String> assetStrings = new ArrayList<>();
-        ArrayList<String> userStrings = new ArrayList<>();
-        ArrayList<String> dateStrings = new ArrayList<>();
-        ArrayList<String> timeStrings = new ArrayList<>();
-        ArrayList<String> inUseStrings = new ArrayList<>();
-        ArrayList<String> lines = new ArrayList<>();
-         */
         String line;
 
         List<Equipment> equipmentList = new ArrayList<>();
