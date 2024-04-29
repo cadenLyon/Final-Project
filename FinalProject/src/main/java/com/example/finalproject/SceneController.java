@@ -1,4 +1,9 @@
 package com.example.finalproject;
+/*
+Caden Lyon
+Computer Science II
+4/29/24
+ */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,8 +19,6 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private AddEquipmentController addEquipmentController;
-
 
     @FXML
     public void switchToAddNewEquipmentPage(ActionEvent event) throws IOException {
@@ -35,8 +38,10 @@ public class SceneController {
     public void switchToSignInPage(ActionEvent event) throws IOException {
         loadFXML("SignInPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
     }
-
-
+    @FXML
+    public void switchToCheckOutPage(ActionEvent event) throws IOException {
+        loadFXML("CheckOutPage.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow());
+    }
 
     private void loadFXML(String fxmlFileName, Stage window) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
@@ -46,29 +51,6 @@ public class SceneController {
         window.show();
     }
 
-    /*
-    public void switchToSignInPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-     */
-
-    /*
-    public void setAddEquipmentController(AddEquipmentController addEquipmentController) {
-        this.addEquipmentController = addEquipmentController;
-    }
-
-    public void switchToAddNewEquipmentPage(ActionEvent event) throws IOException {
-        addEquipmentController.switchToAddNewEquipmentPage(event);
-    }
-
-     */
-
-
     public void switchToHomePage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -76,27 +58,6 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
-    public void switchToCheckOutPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CheckOutPage.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    /*
-    public void switchToCreateAccountPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CreateAccountPage.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-     */
 
     public void switchToRemoveEquipmentPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("RemoveEquipmentPage.fxml"));
@@ -106,14 +67,4 @@ public class SceneController {
         stage.show();
     }
 
-    /*
-    public void switchToViewEquipmentPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ViewEquipmentPage.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-     */
 }

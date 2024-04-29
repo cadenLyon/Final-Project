@@ -1,4 +1,9 @@
 package com.example.finalproject;
+/*
+Caden Lyon
+Computer Science II
+4/29/24
+ */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +18,6 @@ import javafx.stage.Stage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalTime;
 
 public class AddEquipmentController {
 
@@ -56,9 +60,9 @@ public class AddEquipmentController {
             String time = String.valueOf(java.time.LocalTime.now());
             String inUse = "no";
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("equipment.txt", true))) {
-                writer.write(make + " " + model + " " + serial + " " + asset+" "+user+" "+date+" "+time+" "+inUse);
-                writer.newLine();
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("equipment.txt", true))) {
+                bufferedWriter.write(make+" "+model+" "+serial+" "+asset+" "+user+" "+date+" "+time+" "+inUse);
+                bufferedWriter.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
 

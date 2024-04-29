@@ -1,4 +1,9 @@
 package com.example.finalproject;
+/*
+Caden Lyon
+Computer Science II
+4/29/24
+ */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,17 +25,6 @@ public class SignInPageController {
     @FXML
     private Label errorMessage;
 
-
-    @FXML
-    private void switchToHomePage(ActionEvent event) throws IOException {
-        Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        Scene homeScene = new Scene(homeParent);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(homeScene);
-        window.show();
-    }
-
     @FXML
     private void switchToCreateAccountPage(ActionEvent event) throws IOException {
         Parent homeParent = FXMLLoader.load(getClass().getResource("CreateAccountPage.fxml"));
@@ -42,38 +36,15 @@ public class SignInPageController {
     }
 
     public void verifyCredentials(ActionEvent event) throws IOException {
-
-        IDandPasswords iDandPasswords = IDandPasswords.refresh();
-
-        System.out.println("sign in page info: "+iDandPasswords.getLoginInfo());
-        /*
-        String user = userTextField.getText();
-        String pass = passTextField.getText();
-
-        iDandPasswords.checkCredentials(user,pass);
-
-         */
-        boolean checker = iDandPasswords.checkCredentials(userTextField.getText(), passTextField.getText());
-
-        /*
-        if(iDandPasswords.loginInfo.containsKey(user)){
-            if(iDandPasswords.loginInfo.get(user).equals(pass)){
-
-                Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-                Scene homeScene = new Scene(homeParent);
-
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(homeScene);
-                window.show();
+        int secretKey = 99;
 
 
-            }
+        String encryptedPassword = IDandPasswords.refresh().encryptPassword(secretKey, passTextField.getText());
+        boolean checker = IDandPasswords.refresh().checkCredentials(userTextField.getText(), encryptedPassword);
 
-         */
         if(checker){
             String username = userTextField.getText();
             IDandPasswords.refresh().setUsername(username);
-            //iDandPasswords.setUsername(userTextField.getText());
             Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             Scene homeScene = new Scene(homeParent);
 

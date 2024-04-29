@@ -1,6 +1,10 @@
 package com.example.finalproject;
+/*
+Caden Lyon
+Computer Science II
+4/29/24
+ */
 
-import java.text.SimpleDateFormat;
 
 public class Equipment {
     private String make;
@@ -22,6 +26,7 @@ public class Equipment {
         this.time = time;
         this.inUse = inUse;
     }
+
 
     public String getMake() {
         return make;
@@ -87,5 +92,13 @@ public class Equipment {
 
     public void setInUse(String inUse) {
         this.inUse = inUse;
+    }
+
+    public void toggleInUse() {
+        if ("yes".equals(inUse)) {
+            inUse = "no";
+        } else {
+            inUse = "yes";
+        }
     }
 }

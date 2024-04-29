@@ -1,11 +1,10 @@
 package com.example.finalproject;
+/*
+Caden Lyon
+Computer Science II
+4/29/24
+ */
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,6 +19,7 @@ public class IDandPasswords {
         loginInfo.put("1234","1234");
         loginInfo.put("good","good");
         loginInfo.put("caden","caden");
+        loginInfo.put("1","1");
     }
 
     public void addUsernameAndPassword(String user, String pass){
@@ -58,5 +58,16 @@ public class IDandPasswords {
             return false;
         }
         return false;
+    }
+
+    public String encryptPassword(int key, String pass){
+        StringBuilder stringBuilderPassword = new StringBuilder();
+        char[] passwordChars = pass.toCharArray();
+        for (char p : passwordChars){
+            p += key;
+            stringBuilderPassword.append(p);
+        }
+        String encryptedPassword = stringBuilderPassword.toString();
+        return encryptedPassword;
     }
 }

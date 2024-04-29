@@ -23,49 +23,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ViewEquipmentController {
-
-    @FXML
-    private TableColumn<Equipment, String> modelColumn;
+public class CheckOutController {
     @FXML
     private TableColumn<Equipment, String> makeColumn;
     @FXML
-    private TableColumn<Equipment, String> serialColumn;
-    @FXML
-    private TableColumn<Equipment, String> assetColumn;
-    @FXML
-    private TableColumn<Equipment, String> userColumn;
-    @FXML
-    private TableColumn<Equipment, String> dateColumn;
-    @FXML
-    private TableColumn<Equipment, String> timeColumn;
+    private TableColumn<Equipment, String> modelColumn;
     @FXML
     private TableColumn<Equipment, String> inUseColumn;
     @FXML
     private TableView<Equipment> equipmentTable;
 
-
-
     @FXML
     private void switchToHomePage(ActionEvent event) throws IOException {
         Parent homeParent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         Scene homeScene = new Scene(homeParent);
-
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(homeScene);
         window.show();
     }
-
     public void initialize() throws IOException {
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
         makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
-        serialColumn.setCellValueFactory(new PropertyValueFactory<>("serial"));
-        assetColumn.setCellValueFactory(new PropertyValueFactory<>("asset"));
-        userColumn.setCellValueFactory(new PropertyValueFactory<>("user"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         inUseColumn.setCellValueFactory(new PropertyValueFactory<>("inUse"));
-
         readFromEquipment();
     }
 
@@ -89,4 +68,14 @@ public class ViewEquipmentController {
         equipmentTable.getItems().addAll(equipmentList);
 
     }
+
+    @FXML
+    private void checkOut(ActionEvent event){
+        Equipment selectedEquipment = equipmentTable.getSelectionModel().getSelectedItem();
+        if (selectedEquipment != null){
+            selectedEquipment.toggleInUse();
+            equipmentTable.refresh();
+        }
+    }
+
 }
